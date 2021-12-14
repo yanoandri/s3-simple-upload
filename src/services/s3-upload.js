@@ -19,6 +19,13 @@ class S3UploadService {
             Key: file.filename
         }).promise();
     }
+
+    async remove(filename) {
+        return this.S3.deleteObject({
+            Bucket: AWS_BUCKET_NAME,
+            Key: filename
+        }).promise();
+    }
 }
 
 module.exports = { S3UploadService }
